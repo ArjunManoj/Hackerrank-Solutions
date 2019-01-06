@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+int main()
+{
+  long long int t,n,k,count,l;
+  cin>>t;
+  while(t){
+    count=0;
+    cin>>n;
+    k=n;
+    while(n>0){
+    l=n%10;
+    if(l!=0)
+      if(k%l==0)
+      count++;
+      n/=10;
+    }
+    cout<<count<<endl;
+    t--;
+  }
+}
