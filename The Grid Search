@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n,r1,c1,r2,c2,i,j,k=0,check;
+    cin>>n;
+    while(n--){
+        int count=0,find;
+        cin>>r1>>c1;
+        string s1[r1],str1="",str2;
+        for(i=0;i<r1;i++)
+        cin>>s1[i];
+        cin>>r2>>c2;
+        string s2[r2];
+        for(i=0;i<r2;i++)
+        cin>>s2[i];
+        i=0,j=0;
+        int col[r2];
+        while(i<r1){
+            find=s1[i].find(s2[j]);
+            str1="";
+            while(find!=string::npos){
+                str1+=find+'0';
+                find=s1[i].find(s2[j],find+1);
+            }
+            if((str2.find(str1)!=string::npos||j==0)&& str1.size()!=0){
+                //col[k++]=find;
+                str2=str1;
+                j++;
+                i++;
+            }else{
+                i=i-j+1;
+                j=0;
+            }
+            if(j==r2)
+            break;
+        }
+        if(j==r2)
+        cout<<"YES"<<endl;
+        else
+        cout<<"NO"<<endl;
+    }
+    return 0;
+}
+
